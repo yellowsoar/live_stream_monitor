@@ -15,10 +15,13 @@
 
 # Extensions
 !*.py
+!*.rst
 !*.toml
 
 # Files
 !.gitignore
+!make.bat
+!Makefile*
 !Pipfile
 !poetry.lock
 
