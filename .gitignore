@@ -11,9 +11,10 @@
 # (Start with "!")
 
 # Directories
-
+!*/
 
 # Extensions
+!*.py
 !*.toml
 
 # Files
