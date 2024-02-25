@@ -16,6 +16,7 @@
 # Extensions
 !*.py
 !*.rst
+!*.sample
 !*.toml
 
 # Files
