@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "source"
+version = "0.1.0"
+description = ""
+authors = ["yellowsoar <yellowsoar@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.2"
+djangorestframework = "^3.14.0"
+yt-dlp = "^2023.12.30"
+celery = "^5.3.6"
+uvicorn = "^0.27.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

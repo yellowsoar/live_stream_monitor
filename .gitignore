@@ -14,11 +14,12 @@
 
 
 # Extensions
-
+!*.toml
 
 # Files
 !.gitignore
-
+!Pipfile
+!poetry.lock
 
 # ****************************************************************************
 # *                                 Deny List                                *
