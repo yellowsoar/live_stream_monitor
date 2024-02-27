@@ -45,6 +45,13 @@ up: ## run container
 	up \
 	--detach
 
+log: ## get container log
+	$(call FUNC_MAKE_INIT) \
+	&& docker compose \
+	-f container/docker-compose.yml \
+	logs \
+	--follow \
+	--tail 20
 
 rm: ## rm container
 	$(call FUNC_MAKE_INIT) \
