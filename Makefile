@@ -32,13 +32,13 @@ build: ## build container image via docker
 
 up: ## run container
 	$(call FUNC_MAKE_INIT) \
-	&& docker-compose \
+	&& docker compose \
 	-f container/docker-compose.yml \
 	up
 
 rm: ## run container
 	$(call FUNC_MAKE_INIT) \
-	&& docker-compose \
+	&& docker compose \
 	-f container/docker-compose.yml \
 	rm \
 	--stop \
