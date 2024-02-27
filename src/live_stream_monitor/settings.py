@@ -175,3 +175,5 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 CELERY_ACCEPT_CONTENT = ['json', 'pickle']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_BROKER_URL = "amqp://guest:guest@host.docker.internal:5672/"
