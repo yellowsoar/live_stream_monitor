@@ -25,6 +25,7 @@
 
 # Files
 !.gitignore
+!Dockerfile
 !make.bat
 !Makefile*
 !Pipfile
