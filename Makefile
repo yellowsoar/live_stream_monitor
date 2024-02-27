@@ -19,6 +19,14 @@ DOCKER_DEFAULT_PLATFORM ?= linux/amd64
 help: ## Show help
 	sed -ne '/sed/!s/## //p' $(MAKEFILE_LIST)
 
+gen-env: ## Generate .env file
+	$(call FUNC_MAKE_INIT) \
+	&& cp .env.sample .env \
+	&& sed -i 's,DJ_SECRET_KEY=,DJ_SECRET_KEY='"$(shell LC_ALL=C \
+	tr -dc 'A-Za-z0-9' </dev/urandom \
+	| head -c 120; echo \
+	)"',' .env
+
 ## ============================================================================
 ## docker Commands
 
