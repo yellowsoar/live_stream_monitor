@@ -45,7 +45,8 @@ up: ## run container
 	up \
 	--detach
 
-rm: ## run container
+
+rm: ## rm container
 	$(call FUNC_MAKE_INIT) \
 	&& docker compose \
 	-f container/docker-compose.yml \
