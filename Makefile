@@ -20,6 +20,17 @@ help: ## Show help
 	sed -ne '/sed/!s/## //p' $(MAKEFILE_LIST)
 
 ## ============================================================================
+## docker Commands
+
+build: ## build container image via docker
+	$(call FUNC_MAKE_INIT) \
+	&& docker build \
+	--file container/Dockerfile \
+	--tag ghcr.io/yellowsoar/lsm:latest \
+	--tag ghcr.io/yellowsoar/live_stream_monitor:latest \
+	.
+
+## ============================================================================
 ## Python Commands
 
 gen-requirements: ## generate requirements.txt by poetry
