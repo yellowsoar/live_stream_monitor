@@ -15,6 +15,7 @@
 
 # Extensions
 !*.html
+!*.md
 !*.py
 !*.rst
 !*.sample
