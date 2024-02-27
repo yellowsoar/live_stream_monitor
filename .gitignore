@@ -18,6 +18,7 @@
 !*.py
 !*.rst
 !*.sample
+!*.sh
 !*.toml
 !*.txt
 !*.yaml
