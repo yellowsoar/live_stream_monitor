@@ -1,3 +1,11 @@
+[tool.isort]
+float_to_top = true
+force_grid_wrap = 2
+include_trailing_comma = true
+multi_line_output = 3
+profile = "black"
+split_on_trailing_comma = true
+
 [tool.poetry]
 name = "source"
 version = "0.1.0"
