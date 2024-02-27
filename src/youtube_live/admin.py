@@ -1,3 +1,14 @@
 from django.contrib import admin
 
-# Register your models here.
+from youtube_live.models import *
+
+
+class MonitoredVideoAdmin(admin.ModelAdmin):
+    class Meta:
+        model = MonitoredVideo
+
+
+admin.site.register(
+    MonitoredVideo,
+    MonitoredVideoAdmin,
+)
