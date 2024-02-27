@@ -16,6 +16,17 @@ def send_to_task_queue(
     created,
     **kwargs,
 ):
+    if all(
+        [
+            not created,
+            not instance.live_status
+            in [
+                'is_live',
+            ],
+        ],
+    ):
+        return
+
     check_video.apply_async(
         (instance.video_id,),
         retry=True,

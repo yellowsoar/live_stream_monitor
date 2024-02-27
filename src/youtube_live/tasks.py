@@ -1,5 +1,3 @@
-from celery.exceptions import Ignore
-
 from live_stream_monitor.celery import app
 from youtube_live.models import *
 from youtube_live.utils import *
@@ -25,7 +23,4 @@ def check_video(
     query_object.video_info = video_info
     query_object.save()
 
-    if query_object.live_status in [
-        'is_live',
-    ]:
-        raise Ignore()
+    return query_object.live_status
