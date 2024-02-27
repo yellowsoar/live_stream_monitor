@@ -1,0 +1,78 @@
+{% extends 'lsm_base.html' %}
+{% load django_bootstrap5 %}
+{% block title %} Monitored Youtube List {% endblock %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+  {% for video_object in object_list %}
+    <div class="col-sm-4 mb-3 mb-sm-0">
+      <div class="card {% if video_object.live_status == 'is_live' %}border-danger{% else %}border-secondary{% endif %} border border-3">
+        <a href="{{ video_object.video_info.webpage_url }}">
+          <img src="{{ video_object.video_info.thumbnail }}" class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ video_object.title }}
+          </h5>
+          <p class="card-text">
+            {{ video_object.video_info.description|slice:":100" }}
+          </p>
+          <p class="card-text">
+            {% autoescape on %}
+            {% for video_tag in video_object.video_info.tags %}
+            {% if forloop.counter <= 10 %}
+            <a href="https://www.youtube.com/hashtag/{{ video_tag }}">#{{ video_tag }}</a> {% endif %}
+            {% endfor %}
+            {% endautoescape %}
+          </p>
+          <div class="d-grid gap-2 mx-auto">
+            <a href="{{ video_object.video_info.channel_url }}" class="btn btn-info">📂 Channel</a>
+            <a href="{{ video_object.video_info.webpage_url }}" class="btn btn-info">📺 Video</a>
+            <a href="{{ video_object.video_info.uploader_url }}" class="btn btn-info">🤨 Uploader</a>
+            <a href="{{ video_object.video_info.thumbnail }}" class="btn btn-info">🖼️ Thumb</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+      <li>No articles yet.</li>
+  {% endfor %}
+  </div>
+</div>
+
+<nav aria-label="Pager">
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page=1" tabindex="-1">⏮️ 1st</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">◀️ {{ page_obj.previous_page_number }}</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link" href="?page=1" tabindex="-1">⏮️ 1st</a>
+      </li>
+    {% endif %}
+
+      <li class="page-item disabled">
+        <a class="page-link" href="" tabindex="-1">Current ({{ page_obj.number }})</a>
+      </li>
+
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}" tabindex="-1">▶️ {{ page_obj.next_page_number }}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" tabindex="-1">Last ({{ page_obj.paginator.num_pages }}) ⏭️</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" tabindex="-1">Last ({{ page_obj.paginator.num_pages }}) ⏭️</a>
+      </li>
+    {% endif %}
+{% endblock %}

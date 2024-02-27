@@ -4,6 +4,7 @@ from django.shortcuts import (
     redirect,
     render,
 )
+from django.views.generic.list import ListView
 
 from youtube_live.forms import *
 from youtube_live.models import *
@@ -41,3 +42,10 @@ def submit(request):
         # Handle validated form data
         form.save()
         return redirect("list")
+
+
+class MonitoredVideoListView(ListView):
+    model = MonitoredVideo
+    paginate_by = 9
+    template_name = "monitoredvideo_list.html"
+    ordering = ['-updated_time']
