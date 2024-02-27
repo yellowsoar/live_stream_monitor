@@ -28,6 +28,11 @@ urlpatterns_main = [
         admin.site.urls,
     ),
     path(
+        "",
+        youtube_live_views.MonitoredVideoListView.as_view(),
+        name="list",
+    ),
+    path(
         'submit',
         youtube_live_views.submit,
         name='submit',
