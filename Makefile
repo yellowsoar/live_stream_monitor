@@ -30,6 +30,20 @@ build: ## build container image via docker
 	--tag ghcr.io/yellowsoar/live_stream_monitor:latest \
 	.
 
+up: ## run container
+	$(call FUNC_MAKE_INIT) \
+	&& docker-compose \
+	-f container/docker-compose.yml \
+	up
+
+rm: ## run container
+	$(call FUNC_MAKE_INIT) \
+	&& docker-compose \
+	-f container/docker-compose.yml \
+	rm \
+	--stop \
+	--force
+
 ## ============================================================================
 ## Python Commands
 
