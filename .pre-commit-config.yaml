@@ -15,3 +15,9 @@ repos:
       - id: isort
         name: Python Code formatter isort
         files: '.*.py'
+  - repo: https://github.com/asottile/add-trailing-comma
+    rev: v3.1.0
+    hooks:
+      - id: add-trailing-comma
+        name: Python complacent comma placement
+        files: '.*.py'
