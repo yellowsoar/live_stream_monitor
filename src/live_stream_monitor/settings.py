@@ -176,4 +176,4 @@ CELERY_ACCEPT_CONTENT = ['json', 'pickle']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
-CELERY_BROKER_URL = "amqp://guest:guest@host.docker.internal:5672/"
+CELERY_BROKER_URL = "amqp://guest:guest@lsm_rabbitmq:5672/"
