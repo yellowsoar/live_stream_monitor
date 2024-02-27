@@ -18,3 +18,8 @@ DOCKER_DEFAULT_PLATFORM ?= linux/amd64
 
 help: ## Show help
 	sed -ne '/sed/!s/## //p' $(MAKEFILE_LIST)
+
+define FUNC_MAKE_INIT
+	if [ -n "$$(command -v hr)" ]; then hr -; else echo "-----";fi \
+	&& echo "⚙️ Running Makefile target: ${MAKECMDGOALS}"
+endef
