@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv(
 lsm_utils.raise_exception_if_not_truth(
     SECRET_KEY,
     'Missing SECRET_KEY in .env file',
-    )
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

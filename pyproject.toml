@@ -25,7 +25,6 @@ yt-dlp = "^2023.12.30"
 celery = "^5.3.6"
 uvicorn = "^0.27.1"
 
-
 [tool.poetry.group.docs.dependencies]
 sphinx = "^7.2.6"
 
