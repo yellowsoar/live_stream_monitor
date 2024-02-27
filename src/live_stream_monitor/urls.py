@@ -18,12 +18,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from youtube_live import views as youtube_live_views
+
 urlpatterns = []
 
 urlpatterns_main = [
     path(
         'admin/',
         admin.site.urls,
+    ),
+    path(
+        'submit',
+        youtube_live_views.submit,
+        name='submit',
     ),
 ]
 
