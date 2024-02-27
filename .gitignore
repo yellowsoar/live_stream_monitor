@@ -19,6 +19,7 @@
 !*.rst
 !*.sample
 !*.toml
+!*.txt
 !*.yaml
 
 # Files
