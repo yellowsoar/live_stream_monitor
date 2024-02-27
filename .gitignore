@@ -36,6 +36,7 @@
 
 # Directories
 docs/build*
+src/static*
 
 # Extensions
 
