@@ -18,6 +18,7 @@
 !*.rst
 !*.sample
 !*.toml
+!*.yaml
 
 # Files
 !.gitignore
@@ -37,6 +38,3 @@
 
 
 # Files
-
-
-
