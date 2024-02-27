@@ -19,6 +19,23 @@ DOCKER_DEFAULT_PLATFORM ?= linux/amd64
 help: ## Show help
 	sed -ne '/sed/!s/## //p' $(MAKEFILE_LIST)
 
+## ============================================================================
+## Python Commands
+
+gen-requirements: ## generate requirements.txt by poetry
+	$(call FUNC_MAKE_INIT) \
+	&& cd src \
+	&& poetry export \
+		--without-hashes \
+		--format requirements.txt \
+		--output requirements.txt \
+	&& poetry export \
+		--with dev \
+		--without-hashes \
+		--format requirements.txt \
+		--output requirements_dev.txt \
+	&& cd -
+
 define FUNC_MAKE_INIT
 	if [ -n "$$(command -v hr)" ]; then hr -; else echo "-----";fi \
 	&& echo "⚙️ Running Makefile target: ${MAKECMDGOALS}"
