@@ -92,6 +92,26 @@ DATABASES = {
     },
 }
 
+for single_database in DATABASES.values():
+    if 'sqlite' not in single_database['ENGINE']:
+        continue
+    import sqlite3
+
+    try:
+        conn = sqlite3.connect(':memory:')
+        cursor = conn.cursor()
+        cursor.execute('SELECT JSON(\'{"a": "b"}\')')
+    except:
+        lsm_utils.raise_exception_if_not_truth(
+            None,
+            "\n".join(
+                [
+                    'The JSON1 extension is not eabled for sqlite3',
+                    'Ref: https://code.djangoproject.com/wiki/JSON1Extension',
+                ],
+            ),
+        )
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
