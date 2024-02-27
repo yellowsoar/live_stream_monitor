@@ -21,3 +21,9 @@ repos:
       - id: add-trailing-comma
         name: Python complacent comma placement
         files: '.*.py'
+  - repo: https://github.com/psf/black
+    rev: 24.2.0
+    hooks:
+      - id: black
+        name: Python Code formatter black
+        files: '.*.py'
