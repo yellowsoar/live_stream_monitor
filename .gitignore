@@ -22,6 +22,7 @@
 !*.toml
 !*.txt
 !*.yaml
+!*.yml
 
 # Files
 !.gitignore
