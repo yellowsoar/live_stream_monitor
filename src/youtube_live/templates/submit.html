@@ -1,11 +1,15 @@
+{% extends 'lsm_base.html' %}
+{% load django_bootstrap5 %}
+{% block title %} Youtube Video Monitor Submit {% endblock %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
 {% block content %}
-<form action="" method="POST">
+<form action="" method="post" class="form">
   {% csrf_token %}
-  <div class="form-group">
-    <div class="form-group col-md-6">
-      {{ form }}
-      <input class="btn btn-success" type="submit" value="submit" />
-    </div>
-  </div>
+  {% bootstrap_form form %}
+  {% bootstrap_button button_type="submit" content="✅" %}
+  {% bootstrap_button button_type="reset" content="❌" %}
 </form>
 {% endblock %}
