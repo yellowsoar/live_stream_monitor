@@ -16,6 +16,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 
 from youtube_live import views as youtube_live_views
@@ -40,3 +41,4 @@ urlpatterns_main = [
 ]
 
 urlpatterns.extend(urlpatterns_main)
+urlpatterns += staticfiles_urlpatterns()
